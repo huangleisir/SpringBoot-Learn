@@ -1,19 +1,23 @@
 server:
     port: 9100
-    contextPath: /mybatis
+#    contextPath: /mybatis
+    servlet-path: /rest
     session:
         timeout: 1200
-
+#server.servlet-path=/rest
+#spring.mvc.static-path-pattern=/rest/**
 spring:
+    mvc:    
+        static-path-pattern: /rest/**
     application:
         name: spring-boot-mybatis
     redis:
-        host: 192.168.145.132
+        host: 10.101.130.9
         port: 6379
         timeout: 20000
-        cluster:
-            nodes: 192.168.210.134:7000,192.168.210.134:7001,192.168.210.134:7002
-            maxRedirects: 6
+#        cluster:
+#            nodes: 192.168.210.134:7000,192.168.210.134:7001,192.168.210.134:7002
+#            maxRedirects: 6
         pool:
             max-active: 8
             min-idle: 0
@@ -24,9 +28,9 @@ datasource:
     master:
         name: master
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&autoReconnect=true&sessionVariables=FOREIGN_KEY_CHECKS=0&useUnicode=yes&characterEncoding=UTF-8
-        username: root
-        password: root
+        url: jdbc:mysql://10.101.130.6:3306/test?useSSL=false&autoReconnect=true&sessionVariables=FOREIGN_KEY_CHECKS=0&useUnicode=yes&characterEncoding=UTF-8
+        username: jstyh
+        password: jstyh
         maxTotal: 200
         maxIdle: 8
         minIdle: 8
@@ -37,21 +41,21 @@ datasource:
         testOnBorrow: false
         testOnReturn: false
 
-    slave:
-            name: slave
-            driverClassName: com.mysql.jdbc.Driver
-            url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&autoReconnect=true&sessionVariables=FOREIGN_KEY_CHECKS=0&useUnicode=yes&characterEncoding=UTF-8
-            username: root
-            password: root
-            maxTotal: 200
-            maxIdle: 8
-            minIdle: 8
-            initialSize: 10
-            maxWaitMillis: 3000
-            validationQuery: select 1
-            testWhileIdle: true
-            testOnBorrow: false
-            testOnReturn: false
+#    slave:
+#            name: slave
+#            driverClassName: com.mysql.jdbc.Driver
+#            url: jdbc:mysql://10.101.130.9:3306/test?useSSL=false&autoReconnect=true&sessionVariables=FOREIGN_KEY_CHECKS=0&useUnicode=yes&characterEncoding=UTF-8
+#            username: root
+#            password: root
+#            maxTotal: 200
+#            maxIdle: 8
+#            minIdle: 8
+#            initialSize: 10
+#            maxWaitMillis: 3000
+#            validationQuery: select 1
+#            testWhileIdle: true
+#            testOnBorrow: false
+#            testOnReturn: false
 
 mybatis:
     config-location: classpath:mybatis-config.xml

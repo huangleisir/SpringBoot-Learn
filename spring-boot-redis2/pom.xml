@@ -21,7 +21,11 @@
 
     <name>spring-boot-redis2</name>
     <url>http://maven.apache.org</url>
-
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.1.RELEASE</version>
+	</parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <boot.version>1.3.6.RELEASE</boot.version>
@@ -57,19 +61,22 @@
         </dependency>
 
         <!-- 使用jersey RESTful 框架 -->
-        <dependency>
+       <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
             <version>${boot.version}</version>
-        </dependency>
+        </dependency> -->
 
         <!-- 使用jetty作为web容器 -->
-        <dependency>
+       <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
             <version>${boot.version}</version>
-        </dependency>
-
+        </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
         <!-- mybatis 依赖 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -129,6 +136,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-redis</artifactId>
             <version>${boot.version}</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-integration</artifactId>
+        	<version>1.3.6.RELEASE</version>
+        </dependency>
+        <dependency>
+        	<groupId>commons-httpclient</groupId>
+        	<artifactId>commons-httpclient</artifactId>
+        	<version>3.1</version>
         </dependency>
     </dependencies>
 </project>
